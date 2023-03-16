@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppPageEnum } from 'src/core';
+import { AppPageEnum } from '@core';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
     {
-        path: AppPageEnum.Home,
+        path: AppPageEnum.Chat,
         component: AppComponent,
-        // loadChildren: () => import('./pages/home/home.module').then((m) => m.HomeModule)
+        loadChildren: () => import('./pages/chat/chat.module').then((m) => m.ChatModule)
     },
     {
         path: '**',
-        redirectTo: AppPageEnum.Home,
+        redirectTo: AppPageEnum.Chat,
         pathMatch: 'full'
     }
 ];
