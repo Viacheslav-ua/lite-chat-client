@@ -1,11 +1,28 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100%;
+  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  // font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
+  color: black;
+}
+
+:root {
+  --primary-color: #6B3EED;
+  --primary-color-dim: rgba(87,40,222, .75);
+  --secondary-color: #D7E3EE;
+  --footer-margin: 60px;
+  --footer-height: 91.2px;
+  --chat-inner-margin: 25px;
 }
