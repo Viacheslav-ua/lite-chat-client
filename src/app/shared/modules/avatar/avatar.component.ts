@@ -12,6 +12,9 @@ export class AvatarComponent implements OnInit {
   public readonly user!: User;
 
   @Input()
+  public avatarBackgroundColor!: Color;
+
+  @Input()
   public readonly sizeInPx = 50;
 
   @Input()
@@ -39,26 +42,28 @@ export class AvatarComponent implements OnInit {
   }
 
   public get backgroundColor(): string {
-    const { r, g, b } = this.technicalBackgroundColor;
+    const { r, g, b } = this.avatarBackgroundColor;
 
     return `rgb(${r}, ${g}, ${b})`;
   }
 
-  private technicalBackgroundColor!: Color;
+  // private technicalBackgroundColor!: Color;
 
   constructor(
     private readonly randomHelper: RandomHelper
   ) { }
 
   public ngOnInit(): void {
-    this.generateTechnicalBackgroundColor();
+    if (!this.avatarBackgroundColor) {
+      this.generateAvatarBackgroundColor();
+    }
   }
 
-  private generateTechnicalBackgroundColor(): void {
+  private generateAvatarBackgroundColor(): void {
     const minRangeValue = 25;
     const maxRangeValue = 150;
 
-    this.technicalBackgroundColor = {
+    this.avatarBackgroundColor = {
       r: this.randomHelper.generateInt(minRangeValue, maxRangeValue),
       g: this.randomHelper.generateInt(minRangeValue, maxRangeValue),
       b: this.randomHelper.generateInt(minRangeValue, maxRangeValue)
